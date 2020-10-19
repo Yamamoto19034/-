@@ -26,6 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	int DrawX = 0;	//表示位置X
 	int DrawY = 0;	//表示位置Y
 	int time, time_2 = 0;
+	int TimeLimit = 6;
 
 	SetDrawScreen(DX_SCREEN_BACK);	//Draw系関数は裏画面に描画
 	time = GetNowCount();
@@ -39,7 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//DrawFormatString(0, 100, GetColor(255, 255, 255), "立ち上がってから%dミリ秒", time);
 
 		time_2 = GetNowCount();
-		DrawFormatString(0, 100, GetColor(255, 255, 255), "今 %d秒", (time_2 - time) / 1000);
+		DrawFormatString(0, 100, GetColor(255, 255, 255), "あと %d秒", TimeLimit - (time_2 - time) / 1000);
 		DrawString(DrawX, DrawY, "Hello World", GetColor(255, 255, 255));	//文字を描画
 
 		ScreenFlip();		//モニタのリフレッシュレートの速さで裏画面を再描画
